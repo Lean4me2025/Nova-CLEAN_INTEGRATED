@@ -23,10 +23,12 @@ fetch('traits.json')
     });
   });
 
-startBtn.onclick = () => {
-  introAudio.play().catch(() => {
-    introAudio.setAttribute('controls', 'controls');
-  });
+startBtn.onclick = async () => {
+  try {
+    await introAudio.play();
+  } catch (e) {
+    introAudio.setAttribute('controls', 'controls'); // show controls if autoplay blocked
+  }
   introScreen.classList.remove('active');
   introScreen.classList.add('hidden');
   traitsScreen.classList.add('active');
