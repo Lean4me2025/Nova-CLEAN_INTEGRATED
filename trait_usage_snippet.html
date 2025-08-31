@@ -1,0 +1,19 @@
+<!-- Option A: fetch JSON -->
+<script>
+  fetch('traitdata.json')
+    .then(r => r.json())
+    .then(data => {
+      const list = document.getElementById('traits');
+      data.traits.forEach(t => {
+        const li = document.createElement('li');
+        li.textContent = t;
+        list.appendChild(li);
+      });
+    });
+</script>
+
+<!-- Option B: ES module -->
+<script type="module">
+  import { TRAITS } from './traits.js';
+  console.log(TRAITS);
+</script>

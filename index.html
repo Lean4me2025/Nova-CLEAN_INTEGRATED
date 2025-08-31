@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NOVA — Intro Audio</title>
-  <link rel="preload" as="audio" href="assets/audio/intro.mp3">
-  <link rel="preload" as="audio" href="assets/audio/intro.m4a">
-  <link rel="preload" as="audio" href="assets/audio/intro.ogg">
+  <title>NOVA – Grand Rising</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <h1>Welcome to NOVA</h1>
-    <p class="sub">Your intro will play automatically when the page opens. If it doesn’t, press Start.</p>
+  <header class="topBar">
+    <h1>NOVA</h1>
+    <nav>
+      <a class="btn" href="https://payhip.com/b/N7Lvg" target="_blank" rel="noopener">Purpose Book</a>
+    </nav>
+  </header>
 
-    <button id="startBtn" class="primary" aria-label="Start audio">Start</button>
+  <main id="stage">
+    <!-- Intro Screen -->
+    <section id="intro" class="screen active" aria-labelledby="intro-title">
+      <h2 id="intro-title">Welcome to NOVA</h2>
+      <p class="lead">Press Start to begin. Audio will play and then you can explore your 50 traits.</p>
 
-    <!-- Multi-source for broadest compatibility -->
-    <audio id="introAudio" preload="auto" playsinline>
-      <source src="assets/audio/intro.m4a" type="audio/mp4" />
-      <source src="assets/audio/intro.mp3" type="audio/mpeg" />
-      <source src="assets/audio/intro.ogg" type="audio/ogg" />
-      <!-- If none supported, the Start button still provides feedback -->
-      Your browser does not support the audio element.
-    </audio>
+      <div class="actions">
+        <button id="startBtn" class="primary">Start</button>
+      </div>
+
+      <!-- Fixed audio block -->
+      <audio id="introAudio" preload="auto">
+        <source src="audio/intro.m4a" type="audio/mp4" />
+        <source src="audio/intro.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <p id="audioStatus" class="muted" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Traits Screen -->
+    <section id="traitsScreen" class="screen" aria-labelledby="traits-title">
+      <div class="traits-header">
+        <h2 id="traits-title">Explore Your Traits</h2>
+        <button id="backToIntro" class="ghost">Back</button>
+      </div>
+      <ul id="traitsGrid" class="grid"></ul>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="footer">
+    <small>&copy; 2025 NOVA • All rights reserved.</small>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
