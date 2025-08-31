@@ -2,39 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOVA Integrated</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOVA — Intro</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="intro-screen" class="screen active">
-    <h1>Welcome to Nova</h1>
-    <p>A gentle start. Press Start to hear the message and begin.</p>
-    <button id="startBtn">Start</button>
-    <audio id="introAudio" controls preload="auto">
-      <source src="assets/intro.mp3" type="audio/mpeg">
-      <source src="assets/intro.mp4" type="video/mp4">
-      <source src="assets/intro.m4a" type="audio/mp4">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+  <main class="wrap">
+    <h1>Welcome to NOVA</h1>
+    <p class="tag">Discover the purpose you were made for.</p>
 
-  <div id="traits-screen" class="screen hidden">
-    <h2>Select the traits that resonate</h2>
-    <div id="traits-container"></div>
-    <button id="continueBtn">Continue</button>
-  </div>
+    <!-- Start button (also acts as user-gesture fallback for browsers that block autoplay) -->
+    <button id="startBtn" class="btn">Start</button>
 
-  <div id="report-screen" class="screen hidden">
-    <h2>Your NOVA Report</h2>
-    <div id="chosen-traits"></div>
-    <input type="email" id="email" placeholder="you@example.com" />
-    <button id="sendBtn">Send</button>
-    <button id="downloadBtn">Download PDF</button>
-    <a href="https://payhip.com/b/N7Lvg" target="_blank" class="payhipBtn">Get the Purpose Book</a>
-  </div>
+    <!-- Optional: continue button you can link to the next page -->
+    <a id="continueLink" class="btn secondary" href="traits.html" style="display:none;">Continue</a>
+
+    <!-- Audio element -->
+    <audio id="introAudio" preload="auto" src="MyRecording.mp3"></audio>
+
+    <p class="hint" id="hint">Audio will begin automatically where supported. If not, tap Start.</p>
+  </main>
 
   <script src="script.js"></script>
-  <script src="report.js"></script>
 </body>
 </html>
