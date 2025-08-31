@@ -1,0 +1,1 @@
+// Placeholder: PDF handled in script.js.

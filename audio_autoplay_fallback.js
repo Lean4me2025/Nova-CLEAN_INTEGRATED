@@ -1,0 +1,1 @@
+// Handles audio autoplay fallback if blocked by browser policies.
