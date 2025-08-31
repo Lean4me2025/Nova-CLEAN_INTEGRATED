@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NOVA — Intro</title>
+  <title>NOVA — Intro Audio</title>
+  <link rel="preload" as="audio" href="assets/audio/intro.mp3">
+  <link rel="preload" as="audio" href="assets/audio/intro.m4a">
+  <link rel="preload" as="audio" href="assets/audio/intro.ogg">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
     <h1>Welcome to NOVA</h1>
-    <p class="tag">Discover the purpose you were made for.</p>
+    <p class="sub">Your intro will play automatically when the page opens. If it doesn’t, press Start.</p>
 
-    <!-- Start button (also acts as user-gesture fallback for browsers that block autoplay) -->
-    <button id="startBtn" class="btn">Start</button>
+    <button id="startBtn" class="primary" aria-label="Start audio">Start</button>
 
-    <!-- Optional: continue button you can link to the next page -->
-    <a id="continueLink" class="btn secondary" href="traits.html" style="display:none;">Continue</a>
-
-    <!-- Audio element -->
-    <audio id="introAudio" preload="auto" src="MyRecording.mp3"></audio>
-
-    <p class="hint" id="hint">Audio will begin automatically where supported. If not, tap Start.</p>
+    <!-- Multi-source for broadest compatibility -->
+    <audio id="introAudio" preload="auto" playsinline>
+      <source src="assets/audio/intro.m4a" type="audio/mp4" />
+      <source src="assets/audio/intro.mp3" type="audio/mpeg" />
+      <source src="assets/audio/intro.ogg" type="audio/ogg" />
+      <!-- If none supported, the Start button still provides feedback -->
+      Your browser does not support the audio element.
+    </audio>
   </main>
 
   <script src="script.js"></script>
